@@ -1,0 +1,283 @@
+.search-bar {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Calibri', sans-serif;
+    background-color: #f3f3f3; /* Light background */
+    color: #333; /* Default dark text */
+    display: flex;
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #181818; /* Dark background */
+    color: #f5f5f5; /* Light text */
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #3e9ed0; /* Primary color */
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+.sign-in {
+    background-color: #fff;
+    color: #3e9ed0;
+    border: 1px solid #3e9ed0;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+.sign-in:hover {
+    background-color: #3e9ed0;
+    color: #fff;
+    border-color: #2c6e95;
+}
+
+body.dark-mode header {
+    background-color: #2c6e95; /* Slightly darker shade for dark mode */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.search-bar {
+    flex: 1;
+    margin: 0 20px;
+    padding: 8px;
+    background-color: #42a9e0; /* Light blue for search bar */
+    border: none;
+    border-radius: 1%;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+body.dark-mode .search-bar {
+    background-color: #333; /* Dark mode search bar */
+    color: #fff;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px; /* Set the sidebar width */
+    background-color: #e6f4fa; /* Sidebar background */
+    padding: 10px; /* Internal padding of the sidebar */
+    position: fixed; /* Fix it to the viewport */
+    top: 60px; /* Align to header height */
+    left: 0; /* Ensure no gap on the left */
+    bottom: 0; /* Stretch to the bottom of the screen */
+    overflow-y: auto; /* Add scroll for overflow */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+body.dark-mode .sidebar {
+    background-color: #202020; /* Dark sidebar */
+}
+
+.sidebar.collapsed {
+    width: 60px; /* Collapsed width */
+}
+
+.sidebar ul {
+    list-style: none;
+    width: 100%;
+    
+}
+
+.sidebar li {
+    display: flex;
+    align-items: left;
+    gap: 10px;
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.sidebar.collapsed li {
+    opacity: 0; /* Hide text */
+    transform: translateX(-20px); /* Move text out of view */
+}
+
+.sidebar.collapsed li i {
+    margin: auto; /* Center the icons */
+}
+
+.sidebar li i {
+    font-size: 16px;
+}
+
+.sidebar li:hover {
+    background-color: #3e9ed0; /* Primary hover color */
+    border-radius: 4px;
+    color: #fff;
+}
+
+/* Sidebar Toggle Button */
+#sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #3e9ed0;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+#sidebar-toggle:hover {
+    background-color: #2c6e95;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    margin-left: 200px; /* Default margin for expanded sidebar */
+    padding: 20px;
+    padding-top: 80px; /* Adjust for header height */
+    overflow-y: auto;
+    transition: margin-left 0.3s;
+}
+
+.sidebar.collapsed + main {
+    margin-left: 60px; /* Adjusted margin for collapsed sidebar */
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.categories button {
+    background-color: #e0f3fb; /* Light blue */
+    border: none;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+body.dark-mode .categories button {
+    background-color: #303030; /* Dark button for dark mode */
+    color: #fff;
+}
+
+.categories button:hover {
+    background-color: #3e9ed0; /* Primary hover color */
+    color: #fff;
+}
+
+/* Videos */
+.videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.video-card {
+    background-color: #ffffff; /* Light card background */
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+body.dark-mode .video-card {
+    background-color: #202020; /* Dark card background */
+}
+
+.video-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.video-card h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+    color: inherit;
+}
+
+.video-card p {
+    font-size: 12px;
+    color: #777;
+    transition: color 0.3s;
+}
+
+body.dark-mode .video-card p {
+    color: #aaa; /* Lighter text for dark mode */
+}
+
+/* Dark Mode Toggle Button */
+#mode-toggle {
+    width: 35px;
+    height: 35px;
+    background-color: #3e9ed0; /* Primary color */
+    border: none;
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Icon color */
+    font-size: 18px; /* Icon size */
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px; /* Space from adjacent elements */
+    margin-right: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    position: relative; /* Relative positioning for fine-tuning */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+/* Hover Effect */
+#mode-toggle:hover {
+    background-color: #2c6e95; /* Darker shade on hover */
+    transform: scale(1.1); /* Slight enlargement on hover */
+}
+
+/* Adjust for Dark Mode */
+body.dark-mode #mode-toggle {
+    background-color: #777; /* Light background for dark mode */
+    color: #333; /* Icon color in dark mode */
+}
