@@ -46,34 +46,67 @@ body.dark-mode header {
 
 .logo img {
     height: 40px;
+    width: auto;
     margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 0px;
 }
 
 /* Search Bar */
+/* Container for search bar and icon */
+.search-container {
+    position: relative; /* Container for positioning the icon */
+    width: 80%; /* Responsive width of the container */
+    max-width: 500px; /* Max width to avoid it becoming too wide */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Style for the search bar input */
 .search-bar {
-    flex: 1;
-    margin: 0 220px;
-    padding: 8px;
-    background-color: #55b0e0; /* Light blue */
-    border: none;
-    border-radius: 10px;
-    color: #ffffff;
+    width: 100%; /* Fill the container */
+    padding: 8px 40px 8px 15px; /* Add space on the right for icon */
+    background-color: #49a1d1; /* Dark background for search bar */
+    color: #ffffff; /* Light text color */
+    border: 1px solid #555; /* Border color */
+    border-radius: 25px; /* Rounded corners */
     transition: background-color 0.3s, color 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+    font-size: 16px; /* Font size for text */
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
-body.dark-mode .search-bar {
-    background-color: #333; /* Dark mode search bar */
-    color: #fff;
-}
-
+/* Placeholder text color */
 .search-bar::placeholder {
-    color: #9fd1ec; /* Light blue in light mode */
+    color: #aaa; /* Light gray color for placeholder text */
 }
 
-body.dark-mode .search-bar::placeholder {
-    color: #777; /* Gray in dark mode */
+/* Dark Mode search bar */
+body.dark-mode .search-bar {
+    background-color: #222; /* Darker background in dark mode */
+    color: #fff; /* White text in dark mode */
 }
+
+/* Positioning and style of the magnifying glass icon */
+.search-icon {
+    position: absolute; /* Position inside the search bar */
+    right: 15px; /* Align the icon to the far right */
+    top: 50%; /* Vertically center the icon */
+    transform: translateY(-50%); /* Center the icon vertically */
+    color: #ccc; /* Icon color in light mode */
+    font-size: 18px; /* Set icon size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Dark Mode icon style */
+body.dark-mode .search-icon {
+    color: #fff; /* White icon in dark mode */
+}
+
+/* Hover effect for the search icon */
+.search-icon:hover {
+    color: #42a9e0; /* Light blue color on hover */
+}
+
+
 
 /* Sidebar */
 .sidebar {
@@ -262,7 +295,7 @@ body.dark-mode .video-card p {
 #mode-toggle {
     width: 35px;
     height: 35px;
-    background-color: #3e9ed0;
+    background-color: #55b0e0;
     border: none;
     border-radius: 50%;
     display: flex;
