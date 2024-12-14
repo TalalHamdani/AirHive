@@ -1,1 +1,79 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirHive - Video Landing</title>
+    <link rel="stylesheet" href="css\video.css">
+    <script src="js/landing.js"></script>
+    <script src="https://kit.fontawesome.com/27c8061413.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <header>
+        <a href="/home.html" class="logo">
+            <img src="img/logo.png" width="75px" alt="AirHive Logo">
+        </a>        
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <button id="mode-toggle">🌙</button>
+        <div class="profile-icon"></div>
+    </header>
+
+    <aside class="sidebar">
+        <button id="sidebar-toggle" class="toggle-button">☰</button>
+        <ul>
+            <li><button><i class="fas fa-home"></i> <span>Home</span></button></li>
+            <li><button><i class="fas fa-fire"></i> <span>Trending</span></button></li>
+            <li><button><i class="fas fa-play-circle"></i> <span>Subscriptions</span></button></li>
+            <li><button><i class="fas fa-history"></i> <span>History</span></button></li>
+            <li><button><i class="fas fa-list"></i> <span>Playlists</span></button></li>
+            <li><button><i class="fas fa-save"></i> <span>Saved Videos</span></button></li>
+        </ul>
+    </aside>    
+
+    <main class="landing-page">
+        <!-- Video Player Section -->
+        <section class="video-player">
+            <video controls>
+                <source src="path/to/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="video-details">
+                <h1>Video Title</h1>
+                <p>Channel Name • 1M Views • 2 hours ago</p>
+
+                <!-- Like and Comment buttons -->
+                <div class="video-actions">
+                    <button class="like-button"><i class="fas fa-thumbs-up"></i> Like</button>
+                    <button class="comment-button"><i class="fas fa-comment"></i> Comment</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Suggestions -->
+        <section class="video-suggestions">
+            <h3>Suggested Videos</h3>
+            <div class="suggestions-grid">
+                <!-- Suggestion 1 -->
+                <div class="suggestion-card">
+                    <img src="https://via.placeholder.com/200x120" alt="Thumbnail">
+                    <h4>Suggested Video Title</h4>
+                    <p>Channel Name • Views • Time</p>
+                </div>
+                <!-- Suggestion 2 -->
+                <div class="suggestion-card">
+                    <img src="https://via.placeholder.com/200x120" alt="Thumbnail">
+                    <h4>Suggested Video Title</h4>
+                    <p>Channel Name • Views • Time</p>
+                </div>
+                <!-- More suggestions can be added here -->
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
+
