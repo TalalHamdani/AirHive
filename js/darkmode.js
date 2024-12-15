@@ -3,6 +3,7 @@ function initializeMode() {
     const savedMode = localStorage.getItem('mode');
     const toggleButton = document.getElementById('mode-toggle');
 
+    // Check if there's a saved mode preference in localStorage
     if (savedMode === 'dark') {
         document.body.classList.add('dark-mode');
         toggleButton.textContent = '☀️'; // Sun icon for dark mode (to switch to light)
@@ -11,16 +12,16 @@ function initializeMode() {
         toggleButton.textContent = '🌙'; // Moon icon for light mode (to switch to dark)
     }
 
-    // Function to toggle between dark and light mode
+    // Toggle dark mode on button click
     toggleButton.addEventListener('click', function () {
-        console.log("Button clicked!"); // Debugging line to check if button is clicked
         document.body.classList.toggle('dark-mode');
         const isDarkMode = document.body.classList.contains('dark-mode');
-        toggleButton.textContent = isDarkMode ? '☀️' : '🌙';
-        localStorage.setItem('mode', isDarkMode ? 'dark' : 'light');
+        toggleButton.textContent = isDarkMode ? '☀️' : '🌙'; // Update icon
+        localStorage.setItem('mode', isDarkMode ? 'dark' : 'light'); // Save mode in localStorage
     });
-    
 }
 
-// Initialize the dark mode when the page is loaded
-document.addEventListener('DOMContentLoaded', initializeMode);
+// Initialize Dark Mode when the DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    initializeMode(); // Initialize dark mode based on saved preference
+});
