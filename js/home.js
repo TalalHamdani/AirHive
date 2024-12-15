@@ -1,59 +1,73 @@
-// Function to initialize the dark/light mode based on saved preferences
-function initializeMode() {
-    const savedMode = localStorage.getItem("mode");
-    const toggleButton = document.getElementById("mode-toggle");
+// Loading separate JS files for each element
+import './elements/navbar.js';
+import './elements/sidebar.js';
+import './elements/darkmode.js';
 
-    if (savedMode === "dark") {
-        document.body.classList.add("dark-mode");
-        toggleButton.textContent = "☀️"; // Sun icon for dark mode (to switch to light)
-    } else {
-        document.body.classList.remove("dark-mode");
-        toggleButton.textContent = "🌙"; // Moon icon for light mode (to switch to dark)
-    }
+// Function to load Navbar and Sidebar
+function loadNavbarAndSidebar() {
+    // Load navbar
+    fetch('elements/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+            initializeNavbar(); // Initialize navbar buttons and features
+        });
+
+    // Load sidebar
+    fetch('elements/sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+            initializeSidebar(); // Initialize sidebar buttons and features
+        });
 }
 
-// Function to toggle between dark and light mode
-function toggleMode() {
-    const toggleButton = document.getElementById("mode-toggle");
-
-    // Toggle the dark-mode class on the body
-    document.body.classList.toggle("dark-mode");
-
-    // Update the button symbol
-    const isDarkMode = document.body.classList.contains("dark-mode");
-    toggleButton.textContent = isDarkMode ? "☀️" : "🌙";
-
-    // Save the current mode in localStorage
-    const mode = isDarkMode ? "dark" : "light";
-    localStorage.setItem("mode", mode);
-}
-
-// Add event listener to the mode toggle button
-function setupEventListeners() {
-    const toggleButton = document.getElementById("mode-toggle");
-
-    // Check if the button exists before adding the event listener
+// Sidebar collapse functionality
+function initializeSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const toggleButton = document.getElementById('sidebar-toggle');
     if (toggleButton) {
-        toggleButton.addEventListener("click", toggleMode);
+        toggleButton.addEventListener('click', function () {
+            sidebar.classList.toggle('collapsed'); // Toggle the 'collapsed' class
+        });
     }
 }
 
-// Function to initialize all JavaScript functionality
-function initializeApp() {
-    initializeMode(); // Apply the saved mode on page load
-    setupEventListeners(); // Setup all event listeners
+// Navbar functionality (if any)
+function initializeNavbar() {
+    // Any navbar-specific functionality can go here
+    const toggleButton = document.getElementById('sidebar-toggle');
+    if (toggleButton) {
+        toggleButton.addEventListener('click', function () {
+            // Navbar-related logic, if necessary
+        });
+    }
 }
 
-// Initialize the application when the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", initializeApp);
+// Dark/Light Mode functionality
+function initializeMode() {
+    const savedMode = localStorage.getItem('mode');
+    const toggleButton = document.getElementById('mode-toggle');
 
-// Wait for the DOM to load
-document.addEventListener("DOMContentLoaded", function () {
-    const sidebar = document.querySelector(".sidebar");
-    const toggleButton = document.getElementById("sidebar-toggle");
+    if (savedMode === 'dark') {
+        document.body.classList.add('dark-mode');
+        toggleButton.textContent = '☀️'; // Sun icon for dark mode (to switch to light)
+    } else {
+        document.body.classList.remove('dark-mode');
+        toggleButton.textContent = '🌙'; // Moon icon for light mode (to switch to dark)
+    }
 
-    // Add a click event listener to the toggle button
-    toggleButton.addEventListener("click", function () {
-        sidebar.classList.toggle("collapsed"); // Add or remove the 'collapsed' class
+    // Function to toggle between dark and light mode
+    toggleButton.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        toggleButton.textContent = isDarkMode ? '☀️' : '🌙';
+        localStorage.setItem('mode', isDarkMode ? 'dark' : 'light');
     });
+}
+
+// Initialize everything when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    loadNavbarAndSidebar(); // Load the navbar and sidebar
+    initializeMode(); // Initialize dark mode based on saved preference
 });
