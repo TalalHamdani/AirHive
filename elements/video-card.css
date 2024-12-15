@@ -1,22 +1,38 @@
 /* Video Card Styles */
 .video-card {
+    display: block; /* Make sure the anchor tag takes up the full width */
     background-color: #ffffff;
     border-radius: 10px;
     overflow: hidden;
     padding: 10px;
-    transition: background-color 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
 }
 
 body.dark-mode .video-card {
-    background-color: #202020;
+    background-color: #202020; /* Dark background for dark mode */
 }
 
 .video-card img {
     width: 100%;
     border-radius: 10px;
+    transition: transform 0.3s ease; /* Smooth zoom effect for image */
 }
 
+/* Hover effect on the card itself */
+.video-card:hover {
+    background-color: #e6f7ff;  /* Lighter background on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on hover */
+    transform: scale(1.02); /* Slight zoom effect on the card */
+}
+
+/* Hover effect for the image */
+.video-card:hover img {
+    transform: scale(1.02); /* Zoom effect on the image */
+}
+
+/* Text styles */
 .video-card h3 {
     font-size: 16px;
     margin: 10px 0 5px;
@@ -30,7 +46,7 @@ body.dark-mode .video-card {
 }
 
 body.dark-mode .video-card p {
-    color: #aaa;
+    color: #aaa; /* Lighter text for dark mode */
 }
 
 /* Video Card Text Color */
@@ -47,6 +63,6 @@ body:not(.dark-mode) .video-card p {
 
 /* Dark Mode - Text Color */
 body.dark-mode .video-card h3,
-body.dark-mode .video-card p {
+.body.dark-mode .video-card p {
     color: #fff;
 }

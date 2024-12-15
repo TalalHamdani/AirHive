@@ -1,8 +1,3 @@
-// Loading separate JS files for each element
-import './elements/navbar.js';
-import './elements/sidebar.js';
-import './elements/darkmode.js';
-
 // Function to load Navbar and Sidebar
 function loadNavbarAndSidebar() {
     // Load navbar
@@ -11,6 +6,7 @@ function loadNavbarAndSidebar() {
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
             initializeNavbar(); // Initialize navbar buttons and features
+            initializeMode();  // Call initializeMode here to ensure it's done after the navbar is loaded
         });
 
     // Load sidebar
@@ -36,12 +32,6 @@ function initializeSidebar() {
 // Navbar functionality (if any)
 function initializeNavbar() {
     // Any navbar-specific functionality can go here
-    const toggleButton = document.getElementById('sidebar-toggle');
-    if (toggleButton) {
-        toggleButton.addEventListener('click', function () {
-            // Navbar-related logic, if necessary
-        });
-    }
 }
 
 // Dark/Light Mode functionality
@@ -49,6 +39,7 @@ function initializeMode() {
     const savedMode = localStorage.getItem('mode');
     const toggleButton = document.getElementById('mode-toggle');
 
+    // Check if there's a saved mode preference in localStorage
     if (savedMode === 'dark') {
         document.body.classList.add('dark-mode');
         toggleButton.textContent = '☀️'; // Sun icon for dark mode (to switch to light)
@@ -57,17 +48,34 @@ function initializeMode() {
         toggleButton.textContent = '🌙'; // Moon icon for light mode (to switch to dark)
     }
 
-    // Function to toggle between dark and light mode
+    // Toggle dark mode on button click
     toggleButton.addEventListener('click', function () {
         document.body.classList.toggle('dark-mode');
         const isDarkMode = document.body.classList.contains('dark-mode');
-        toggleButton.textContent = isDarkMode ? '☀️' : '🌙';
-        localStorage.setItem('mode', isDarkMode ? 'dark' : 'light');
+        toggleButton.textContent = isDarkMode ? '☀️' : '🌙'; // Update icon
+        localStorage.setItem('mode', isDarkMode ? 'dark' : 'light'); // Save mode in localStorage
     });
 }
 
-// Initialize everything when DOM is fully loaded
+// Function to load Video Cards dynamically
+function loadVideoCards() {
+    const videoContainer = document.getElementById('video-container');
+
+    // Fetch the video card HTML content
+    fetch('elements/video-card.html')
+        .then(response => response.text())
+        .then(data => {
+            // Append the video card content to the container (5 video cards for example)
+            for (let i = 0; i < 5; i++) {
+                videoContainer.innerHTML += data;
+            }
+        })
+        .catch(error => console.error('Error loading video cards:', error));
+}
+
+// Initialize Navbar, Sidebar, Video Cards, and Dark Mode when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function () {
     loadNavbarAndSidebar(); // Load the navbar and sidebar
+    loadVideoCards(); // Load video cards
     initializeMode(); // Initialize dark mode based on saved preference
 });

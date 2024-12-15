@@ -6,12 +6,11 @@ header {
     background-color: #3e9ed0;
     padding: 10px 20px;
     width: 100%;
-    height: 60px; /* Fix the height of the navbar */
     position: fixed;
     top: 0;
     z-index: 1000;
-    box-sizing: border-box; /* Ensures padding and border are included in height */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 body.dark-mode header {
@@ -25,11 +24,62 @@ body.dark-mode header {
     font-weight: bold;
     color: #fff;
     text-decoration: none;
-    height: 100%; /* Ensures the logo takes up the full navbar height */
+    height: 100%;
 }
 
 .logo img {
-    height: 40px; /* Ensure logo is not too tall */
+    height: 40px;
     width: auto;
     margin-right: 10px;
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 8px 40px 8px 15px;
+    background-color: #49a1d1;
+    color: #ffffff;
+    border: 1px solid #555;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    box-sizing: border-box;
+}
+
+body.dark-mode .search-bar {
+    background-color: #222;
+    color: #fff;
+}
+
+.search-bar::placeholder {
+    color: #9fd1ec;
+}
+
+body.dark-mode .search-bar::placeholder {
+    color: #777;
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+body.dark-mode .search-icon {
+    color: #fff;
+}
+
+.search-icon:hover {
+    color: #42a9e0;
 }
