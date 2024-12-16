@@ -42,30 +42,3 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavbar(); // Initialize the Navbar and Dark Mode
 });
 
-// Get references to the buttons and modal elements
-const signInButton = document.getElementById('sign-in-btn');
-const signInModal = document.getElementById('sign-in-modal');
-const closeButton = document.getElementById('sign-in-close');
-
-// Function to open the modal
-function openModal() {
-    signInModal.style.display = 'block'; // Show the modal
-}
-
-// Function to close the modal
-function closeModal() {
-    signInModal.style.display = 'none'; // Hide the modal
-}
-
-// Event listener for the "Sign In" button to open the modal
-signInButton.addEventListener('click', openModal);
-
-// Event listener for the "Close" button to close the modal
-closeButton.addEventListener('click', closeModal);
-
-// Event listener for clicking outside the modal to close it
-window.addEventListener('click', function (event) {
-    if (event.target === signInModal) {
-        closeModal();
-    }
-});
