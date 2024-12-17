@@ -54,3 +54,7 @@ body.dark-mode .categories button {
     background-color: #307aa1;
     color: #fff;
 }
+
+body.dark-mode .categories button:hover {
+    background-color: #222222;
+}
