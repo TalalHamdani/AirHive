@@ -1,5 +1,7 @@
 /* Sidebar Styles */
+
 .sidebar {
+    font-family: "Montserrat", sans-serif;
     width: 200px;
     background-color: #55b0e0;
     padding: 0;
@@ -10,6 +12,7 @@
     overflow-y: auto;
     box-sizing: border-box;
     transition: width 0.3s;
+    font-size: 18px; /* Increase sidebar base font size */
 }
 
 body.dark-mode .sidebar {
@@ -21,6 +24,7 @@ body.dark-mode .sidebar {
 }
 
 .sidebar ul {
+    font-size: 18px; /* Increase font size for sidebar list items */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -33,7 +37,8 @@ body.dark-mode .sidebar {
     background-color: #55b0e0;
     border: none;
     color: #fff;
-    padding: 10px 15px;
+    padding: 12px 20px; /* Slightly larger padding for better spacing */
+    font-size: 18px; /* Increase font size for button text */
     width: 100%;
     border-radius: 0;
     cursor: pointer;
@@ -55,7 +60,7 @@ body.dark-mode .sidebar li button:hover {
 
 .sidebar.collapsed li button {
     justify-content: center;
-    padding: 10px;
+    padding: 12px; /* Adjust padding for collapsed state */
     text-align: center;
 }
 
@@ -64,7 +69,7 @@ body.dark-mode .sidebar li button:hover {
 }
 
 .sidebar li i {
-    font-size: 16px;
+    font-size: 20px; /* Increase font size for icons */
 }
 
 /* Sidebar Toggle Button */
@@ -73,13 +78,14 @@ body.dark-mode .sidebar li button:hover {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #55b0e0;
     color: #fff;
     border: none;
     cursor: pointer;
     margin: 0;
     box-sizing: border-box;
+    font-size: 18px; /* Increase font size for toggle button */
     transition: background-color 0.3s;
 }
 

@@ -63,6 +63,24 @@ body:not(.dark-mode) .video-card p {
 
 /* Dark Mode - Text Color */
 body.dark-mode .video-card h3,
-.body.dark-mode .video-card p {
+body.dark-mode .video-card p {
     color: #fff;
+}
+
+/* Remove blue underlines from links */
+a {
+    text-decoration: none; /* Removes underline */
+}
+
+/* Remove the blue underline on focus or hover in light and dark mode */
+a:focus, a:hover {
+    text-decoration: none; /* Ensures no underline on hover or focus */
+}
+
+/* Videos Grid */
+.videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    transition: grid-template-columns 0.3s ease;
 }

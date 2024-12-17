@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirHive</title>
+    <title>Trending - AirHive</title>
     
     <!-- Link to CSS Files -->
     <link rel="stylesheet" href="css/index.css">
@@ -11,15 +11,17 @@
     <link rel="stylesheet" href="elements/sidebar.css">  <!-- Sidebar Styles -->
     <link rel="stylesheet" href="elements/video-card.css"> <!-- Video Card Styles -->
     <link rel="stylesheet" href="elements/modal.css"> <!-- Modal Styles -->
+    <link rel="stylesheet" href="css\loggedout.css"> <!-- History Styles -->
 
-    <!-- Link to JS Files -->
-    <script src="js/darkmode.js" defer></script>
-    <script src="elements/navbar.js" defer></script>
-    <script src="elements/sidebar.js" defer></script>
-    <script src="elements/video-card.js" defer></script>
-    <script src="js/home.js" defer></script>
-    <script src="elements/modal.js" defer></script>
-    
+
+  <!-- Link to JS Files -->
+  <script src="js/darkmode.js" defer></script>
+  <script src="elements/navbar.js" defer></script>
+  <script src="elements/sidebar.js" defer></script>
+  <script src="elements/video-card.js" defer></script>
+  <script src="js/home.js" defer></script>
+  <script src="elements/modal.js" defer></script>
+  
     <!-- Font -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -35,17 +37,9 @@
     <div id="sidebar"></div>
 
     <!-- Main Content -->
-    <main>
-        <div class="categories">
-            <button>All</button>
-            <button>Vertical</button>
-            <button>Horizontal</button>
-            <button>Videos</button>
-            <button>Photos</button>
-        </div>
-        <div class="videos" id="video-container">
-            <!-- Video cards will be inserted here dynamically -->
+    <main class="main-content">
+        <div class="content-message">
+            <h2 class="message-title">Please sign in to view your saved-videos</h2>
+            <button id="sign-in-btn">Sign In</button>
         </div>
     </main>
-</body>
-</html>
