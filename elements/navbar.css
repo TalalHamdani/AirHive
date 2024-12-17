@@ -84,45 +84,6 @@ body.dark-mode .search-icon {
     color: #42a9e0;
 }
 
-/* Sign In Button */
-#sign-in-btn {
-    background-color: #6bb3c980;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 12px;
-}
-
-#sign-in-btn:hover {
-    background-color: #6bb3c9da;
-}
-
-/* Modal Styling */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0,0,0,0.4); /* Black background with opacity */
-    padding-top: 60px;
-}
-
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 400px;
-    border-radius: 10px;
-}
-
 /* Close Button */
 .close {
     color: #aaa;
@@ -137,3 +98,43 @@ body.dark-mode .search-icon {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* From Uiverse.io by portseif */ 
+#sign-in-btn {
+    background-color: #72b5de;
+    border: 0px solid rgb(209, 213, 219);
+    border-radius: 0.5rem;
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation; 
+  }
+  
+  #sign-in-btn:hover {
+    background-color: #f9fafb;
+  }
+  
+  #sign-in-btn:focus {
+    outline: 2px solid rgba(0, 0, 0, 0.1);
+    outline-offset: 2px;
+  }
+  
+  #sign-in-btn:focus-visible {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  
+  body.dark-mode #sign-in-btn {
+    background-color: #5195c0;
+  }
