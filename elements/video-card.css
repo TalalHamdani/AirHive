@@ -79,8 +79,8 @@ a:focus, a:hover {
 
 /* Videos Grid */
 .videos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     gap: 20px;
     transition: grid-template-columns 0.3s ease;
 }

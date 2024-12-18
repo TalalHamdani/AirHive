@@ -5,3 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     loadNavbarAndSidebar();  // Load the Navbar and Sidebar from external files
     loadVideoCards();        // Load video cards dynamically
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the video player
+    loadVideoPlayer();
+}
