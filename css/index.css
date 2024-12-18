@@ -23,7 +23,7 @@ main {
     flex: 1;
     margin-left: 200px;
     padding: 20px;
-    padding-top: 80px;
+    padding-top: 50px;
     overflow-y: auto;
     transition: margin-left 0.3s;
 }
@@ -32,6 +32,7 @@ main {
 .categories {
     display: flex;
     gap: 10px;
+
     margin-bottom: 20px;
 }
 
@@ -40,7 +41,7 @@ main {
     border: none;
     color: #ffffff;
     padding: 10px 15px;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
 }

@@ -38,3 +38,4 @@ function initializeNavbar() {
         console.log('Mode changed');
     });
 }
+
