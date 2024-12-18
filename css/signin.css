@@ -1,0 +1,148 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap'); */
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  /* box-sizing: border-box; */
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+body {
+  background-color: #0583D2;
+}
+
+h1 {
+  margin-bottom: 10%;
+  text-align: center;
+  color: #0583D2;
+  letter-spacing: 0.1em;
+}
+
+p {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+}
+
+p span {
+  background: #f1f7fe;
+  padding: 0 10px;
+}
+
+/* Form container */
+.login-container {
+  background-color: #f1f7fe;
+  max-width: 700px;
+  margin: 15vh auto;
+  padding: 32px 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #010101;
+  text-align: center;
+}
+
+/* Form elements */
+input {
+  background: none;
+  border: 0;
+  outline: 0;
+  height: 40px;
+  width: 100%;
+  border-bottom: 1px solid #6b6b6b;
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  margin-bottom: 16px;
+}
+
+input:last-of-type {
+  margin-bottom: 0;
+}
+
+button {
+  background-color: #0583D2;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 16px;
+}
+
+button:hover {
+  background-color: #005ce6;
+}
+
+/* Message container */
+#message-container {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  max-width: 300px;
+  width: 90%;
+  /* background-color: #f8d7da; */
+  /* border: 1px solid #f5c6cb; */
+  /* border-radius: 8px; */
+  padding: 16px;
+  display: block; /* Initially hidden */
+  color: #721c24;
+  text-align: center;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+#message-container.show {
+  display: block; /* Make visible when the 'show' class is added */
+}
+
+#message-container div {
+  margin: 5px 0;
+  font-size: 0.85rem;
+}
+
+/* Additional styles */
+#return-btn {
+  background: none;
+  color: grey;
+  text-decoration: underline;
+  border: none;
+  margin-top: 3%;
+  cursor: pointer;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+#create-acct {
+  display: none; /* Ensure this form is hidden by default */
+}
+
+#cancel-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: none;
+  color: rgb(255, 255, 255);
+  border: none;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#cancel-btn:hover {
+  color: #c7c7c7;
+  text-decoration: underline;
+}

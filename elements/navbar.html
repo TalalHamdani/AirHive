@@ -1,13 +1,28 @@
 <header>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAk6Q7tQD5bRNIlY0K5XRy3pXc3RKg1drk",
+    authDomain: "airhive-33cc5.firebaseapp.com",
+    projectId: "airhive-33cc5",
+    storageBucket: "airhive-33cc5.firebasestorage.app",
+    messagingSenderId: "852166236645",
+    appId: "1:852166236645:web:ac3d15fc608378a2dab70c",
+    measurementId: "G-6MPGT5709C"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
     <a href="/index.html" class="logo">
         <img src="img/logo.png" width="75px" alt="AirHive Logo">
-    </a>        
+    </a>
     <div class="search-container">
         <input type="text" class="search-bar" placeholder="Search">
         <i class="fas fa-search search-icon"></i>
     </div>
     <button id="mode-toggle">🌙</button>
-    <a href="/signup.html">
-        <button id="sign-in-btn">Sign In</button>
+    <a href="/signin.html">
+        <button id="sign-in-page">Sign In</button>
     </a>
 </header>

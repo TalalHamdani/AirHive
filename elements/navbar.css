@@ -132,7 +132,7 @@ body.dark-mode .search-icon {
 }
 
 /* Sign-In Button */
-#sign-in-btn {
+#sign-in-page {
     background-color: #72b5de;
     border: 0px solid rgb(209, 213, 219);
     border-radius: 0.5rem;
@@ -148,16 +148,30 @@ body.dark-mode .search-icon {
     touch-action: manipulation;
 }
 
-#sign-in-btn:hover {
+#sign-in-page:hover {
     background-color: #6bbde2;
 }
 
-#sign-in-btn:focus {
+#sign-in-page:focus {
     outline: 2px solid rgba(0, 0, 0, 0.1);
     outline-offset: 2px;
     box-shadow: none;
 }
 
-body.dark-mode #sign-in-btn {
+body.dark-mode #sign-in-page {
     background-color: #5195c0;
 }
+
+#profile-button {
+    background-color: #4caf50; /* Green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #profile-button:hover {
+    background-color: #45a049;
+  }
+  
