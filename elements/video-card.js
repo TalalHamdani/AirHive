@@ -81,17 +81,17 @@ document.addEventListener('DOMContentLoaded', loadVideoCards);
 document.addEventListener("DOMContentLoaded", function () {
     const videoContainer = document.getElementById("video-container");
     const categoryButtons = document.querySelectorAll(".categories button");
-    let selectedCategories = []; // Array to keep track of selected categories
+    let selectedCategory = "All"; // Keep track of the currently selected category
 
-    // Function to display videos based on selected categories
-    function filterVideos() {
+    // Function to display videos based on the selected category
+    function filterVideos(category) {
         const videoCards = Array.from(videoContainer.children);
 
         videoCards.forEach(card => {
             const videoCategory = card.getAttribute("data-category");
 
-            // Show videos that match any of the selected categories
-            if (selectedCategories.length === 0 || selectedCategories.includes(videoCategory)) {
+            // Show videos that match the selected category or "All"
+            if (category === "All" || videoCategory === category) {
                 card.classList.remove("hidden");
             } else {
                 card.classList.add("hidden");
@@ -103,33 +103,17 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleCategoryClick(button) {
         const category = button.getAttribute("data-category");
 
-        if (category === "All") {
-            // If "All" is selected, clear all other selections
-            selectedCategories = [];
+        if (selectedCategory !== category) {
+            // Update the selected category
+            selectedCategory = category;
+
+            // Deselect all buttons and highlight the clicked one
             categoryButtons.forEach(btn => btn.classList.remove("active"));
             button.classList.add("active");
-        } else {
-            // Toggle the category selection
-            const categoryIndex = selectedCategories.indexOf(category);
-            if (categoryIndex > -1) {
-                // If the category is already selected, deselect it
-                selectedCategories.splice(categoryIndex, 1);
-                button.classList.remove("active");
-            } else {
-                // Otherwise, select the category
-                selectedCategories.push(category);
-                button.classList.add("active");
 
-                // Deselect "All" if another category is selected
-                const allButton = document.querySelector('button[data-category="All"]');
-                if (allButton) {
-                    allButton.classList.remove("active");
-                }
-            }
+            // Update the displayed videos
+            filterVideos(category);
         }
-
-        // Update the displayed videos
-        filterVideos();
     }
 
     // Function to initialize video cards
