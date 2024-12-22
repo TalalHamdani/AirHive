@@ -1,86 +1,105 @@
 /* Video Card Styles */
+/* Remove default blue color and underline from all links */
+a {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Ensures the link inherits text color from its parent */
+}
+
+/* Ensure focus and hover styles don't apply default blue styling */
+a:focus,
+a:hover {
+    text-decoration: none; /* Prevents underline on hover/focus */
+    color: inherit; /* Prevents blue color on hover/focus */
+}
+
 .video-card {
-    display: block; /* Make sure the anchor tag takes up the full width */
+    display: block; /* Each video card is a block */
     background-color: #ffffff;
     border-radius: 10px;
     overflow: hidden;
     padding: 10px;
     text-decoration: none; /* Remove underline */
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Smooth transition */
+    transition: opacity 0.5s ease, transform 0.5s ease, margin 0.5s ease; /* Smooth fade, scale, and position effect */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    flex: 1 1 calc(20% - 20px); /* Flexible width for responsiveness */
+    max-width: calc(20% - 20px); /* Maximum width */
+    min-width: 200px; /* Minimum size */
+    opacity: 1; /* Fully visible by default */
+    transform: scale(1); /* Default size */
+    box-sizing: border-box; /* Include padding/border in size calculations */
+    pointer-events: all; /* Enable interactions */
+    visibility: visible; /* Fully visible */
+    position: relative; /* Enable reflow adjustments */
+    z-index: 1; /* Ensure visibility priority */
 }
 
 body.dark-mode .video-card {
-    background-color: #202020; /* Dark background for dark mode */
+    background-color: #202020; /* Background for dark mode */
 }
 
 .video-card img {
-    width: 100%;
+    width: 100%; /* Make the image responsive */
     border-radius: 10px;
-    transition: transform 0.3s ease; /* Smooth zoom effect for image */
+    transition: transform 0.3s ease; /* Smooth zoom effect */
 }
 
-/* Hover effect on the card itself */
 .video-card:hover {
-    background-color: #e6f7ff;  /* Lighter background on hover */
+    background-color: #e6f7ff; /* Lighter background on hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on hover */
-    transform: scale(1.02); /* Slight zoom effect on the card */
+    transform: scale(1.02); /* Slight zoom effect on hover */
 }
 
-/* Hover effect for the image */
 .video-card:hover img {
     transform: scale(1.02); /* Zoom effect on the image */
 }
 
-/* Text styles */
 .video-card h3 {
-    font-size: 16px;
+    font-size: 16px; /* Adjusted font size for titles */
     margin: 10px 0 5px;
     color: inherit;
 }
 
 .video-card p {
-    font-size: 12px;
-    color: #777;
-    transition: color 0.3s;
+    font-size: 12px; /* Smaller text for descriptions */
+    color: #777; /* Light gray text */
+    transition: color 0.3s; /* Smooth color transitions */
 }
 
 body.dark-mode .video-card p {
     color: #aaa; /* Lighter text for dark mode */
 }
 
-/* Video Card Text Color */
-.video-card h3,
-.video-card p {
-    transition: color 0.3s ease;
-}
-
-/* Light Mode - Text Color */
-body:not(.dark-mode) .video-card h3,
-body:not(.dark-mode) .video-card p {
-    color: #333;
-}
-
-/* Dark Mode - Text Color */
-body.dark-mode .video-card h3,
-body.dark-mode .video-card p {
-    color: #fff;
-}
-
-/* Remove blue underlines from links */
-a {
-    text-decoration: none; /* Removes underline */
-}
-
-/* Remove the blue underline on focus or hover in light and dark mode */
-a:focus, a:hover {
-    text-decoration: none; /* Ensures no underline on hover or focus */
+/* Hidden State (For Filtering - Fade/Slide Left) */
+.video-card.hidden {
+    opacity: 0; /* Fade out */
+    transform: translateX(-20px) scale(0.9); /* Slide left and slightly shrink */
+    pointer-events: none; /* Disable interactions */
+    visibility: hidden; /* Hidden from layout */
+    position: absolute; /* Remove from layout for smoother reflow */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
 }
 
 /* Videos Grid */
 .videos {
     display: flex;
-    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
-    gap: 20px;
-    transition: grid-template-columns 0.3s ease;
+    flex-wrap: wrap; /* Wrap items to new rows if needed */
+    gap: 20px; /* Space between items */
+    justify-content: flex-start; /* Align all visible items to the left */
+    padding: 0; /* No extra padding */
+    transition: all 0.5s ease; /* Smooth reflow transitions */
+}
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .video-card {
+        flex: 1 1 calc(50% - 20px); /* Adjust to two cards per row on small screens */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .video-card {
+        flex: 1 1 calc(100% - 20px); /* Full width for small devices */
+        max-width: calc(100% - 20px);
+    }
 }

@@ -32,30 +32,49 @@ main {
 .categories {
     display: flex;
     gap: 10px;
-
     margin-bottom: 20px;
 }
 
 .categories button {
-    background-color: #55b0e0;
+    background-color: #55b0e0; /* Default button background */
     border: none;
-    color: #ffffff;
+    color: #ffffff; /* Default button text color */
     padding: 10px 15px;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode .categories button {
-    background-color: #303030;
-    color: #fff;
+    background-color: #303030; /* Dark mode default background */
+    color: #fff; /* Dark mode default text color */
 }
 
 .categories button:hover {
-    background-color: #307aa1;
+    background-color: #307aa1; /* Hover background color */
     color: #fff;
 }
 
 body.dark-mode .categories button:hover {
-    background-color: #222222;
+    background-color: #222222; /* Hover background color for dark mode */
+}
+
+/* Active State for Category Buttons */
+.categories button.active {
+    background-color: #004a70; /* Darker blue for active state */
+    color: #ffffff; /* Keep text white for active button */
+    /* border: 1px solid #003850; Optional border for distinction */
+}
+
+body.dark-mode .categories button.active {
+    background-color: #0f0f0f; /* Darker gray for active state in dark mode */
+    color: #ffffff; /* Text remains white for active button in dark mode */
+}
+
+.categories button.active:hover {
+    background-color: #003850; /* Even darker shade on hover for active button */
+}
+
+body.dark-mode .categories button.active:hover {
+    background-color: #111111; /* Darker hover color for active button in dark mode */
 }
