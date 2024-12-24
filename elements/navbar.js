@@ -40,7 +40,7 @@ function initializeNavbar() {
 
     window.addEventListener("load", async function () {
         try {
-            // Load Clerk
+            // Load Clerk SDK
             await Clerk.load();
             console.log("Clerk loaded");
     
@@ -65,14 +65,17 @@ function initializeNavbar() {
                 }
             };
     
-            // Update UI initially
+            // Initial UI update
             updateUI();
     
-            // Listen for changes in authentication state
-            Clerk.addListener("auth:change", updateUI);
+            // Listen for real-time authentication state changes
+            Clerk.addListener("auth:change", () => {
+                console.log("Auth state changed");
+                updateUI();
+            });
         } catch (error) {
             console.error("Error initializing Clerk:", error);
         }
-    });
+    });    
 
 }
