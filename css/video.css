@@ -131,22 +131,30 @@ video {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 350px; 
+    margin: 0 auto; 
+    padding: 0px; 
 }
 
 .suggestion-card img {
     width: 100%;
+    height: auto; 
     border-radius: 10px;
 }
 
 .suggestion-card h4 {
-    font-size: 16px;
+    font-size: 14px; 
     margin: 10px 0 5px;
 }
 
 .suggestion-card p {
-    font-size: 12px;
+    font-size: 10px; 
     color: #777;
+    margin-top: -5px; 
+    line-height: 1.2; 
 }
+
+
 
 /* Dark Mode Adjustments */
 body.dark-mode .video-suggestions {
