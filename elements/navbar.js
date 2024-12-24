@@ -44,29 +44,35 @@ function initializeNavbar() {
             await Clerk.load();
             console.log("Clerk loaded");
     
-            if (Clerk.user) {
-                console.log("User is signed in");
+            const userButtonContainer = document.getElementById("user-button-container");
+            const signInButton = document.getElementById("sign-in-page");
     
-                // Dynamically add the UserButton
-                document.getElementById("app").innerHTML = `
-                    <div id="user-button"></div>
-                `;
+            // Function to update the UI based on login state
+            const updateUI = () => {
+                if (Clerk.user) {
+                    console.log("User is signed in");
     
-                const userButtonDiv = document.getElementById("user-button");
-                Clerk.mountUserButton(userButtonDiv);
+                    // Mount UserButton
+                    userButtonContainer.innerHTML = ""; // Clear existing content
+                    Clerk.mountUserButton(userButtonContainer);
+                    signInButton.style.display = "none";
+                } else {
+                    console.log("User is not signed in");
     
-                // Hide the sign-in button if the user is logged in
-                document.getElementById("sign-in-page").style.display = "none";
-            } else {
-                console.log("User is not signed in");
+                    // Show Sign-In button
+                    userButtonContainer.innerHTML = ""; // Clear existing content
+                    signInButton.style.display = "block";
+                }
+            };
     
-                // Show the sign-in button if the user is not logged in
-                document.getElementById("sign-in-page").style.display = "block";
-            }
+            // Update UI initially
+            updateUI();
+    
+            // Listen for changes in authentication state
+            Clerk.addListener("auth:change", updateUI);
         } catch (error) {
-            console.error("Error loading Clerk:", error);
+            console.error("Error initializing Clerk:", error);
         }
     });
-    
-    
+
 }
