@@ -37,30 +37,36 @@ function initializeNavbar() {
         localStorage.setItem('mode', isDarkMode ? 'dark' : 'light');
         console.log('Mode changed');
     });
+
+    window.addEventListener("load", async function () {
+        try {
+            // Load Clerk
+            await Clerk.load();
+            console.log("Clerk loaded");
+    
+            if (Clerk.user) {
+                console.log("User is signed in");
+    
+                // Dynamically add the UserButton
+                document.getElementById("app").innerHTML = `
+                    <div id="user-button"></div>
+                `;
+    
+                const userButtonDiv = document.getElementById("user-button");
+                Clerk.mountUserButton(userButtonDiv);
+    
+                // Hide the sign-in button if the user is logged in
+                document.getElementById("sign-in-page").style.display = "none";
+            } else {
+                console.log("User is not signed in");
+    
+                // Show the sign-in button if the user is not logged in
+                document.getElementById("sign-in-page").style.display = "block";
+            }
+        } catch (error) {
+            console.error("Error loading Clerk:", error);
+        }
+    });
+    
+    
 }
-
-// window.addEventListener('load', async () => {
-//     await Clerk.load();
-//     console.log('Clerk loaded');
-//     const userbuttonDiv = document.getElementById('user-button')
-//     clerk.mountUserButton(userbuttonDiv)
-
-//     // Check if the user is signed in
-//     if (Clerk.user) {
-//         document.getElementById('app').innerHTML = `
-//           <div id="user-button"></div>
-//         `
-  
-//         const userButtonDiv = document.getElementById('user-button')
-  
-//         Clerk.mountUserButton(userButtonDiv)
-//       } else {
-//         document.getElementById('app').innerHTML = `
-//           <div id="sign-in"></div>
-//         `
-  
-//         const signInDiv = document.getElementById('sign-in')
-  
-//         Clerk.mountSignIn(signInDiv)
-//       }
-// });

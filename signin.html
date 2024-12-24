@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div id="app" class="sign-form"></div>
+    <div id="app" class="sign-in-form"></div>
 
     <!-- Initialize Clerk with your
     Clerk Publishable Key and Frontend API URL -->
@@ -16,15 +16,16 @@
     async
     crossorigin="anonymous"
     data-clerk-publishable-key="pk_test_dG9waWNhbC1wdWctNjYuY2xlcmsuYWNjb3VudHMuZGV2JA"
-    src="https://topical-pug-66.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+    src="https://topical-pug-66.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
     type="text/javascript">
     </script>
 
     <script>
     window.addEventListener('load', async function () {
         await Clerk.load()
-
+        console.log('Clerk loaded')
     if (Clerk.user) {
+        console.log('User is signed in');
       document.getElementById('app').innerHTML = `
         <div id="user-button"></div>
       `
@@ -33,6 +34,7 @@
 
       Clerk.mountUserButton(userButtonDiv)
     } else {
+        console.log('User is not signed in');
       document.getElementById('app').innerHTML = `
         <div id="sign-in"></div>
       `
@@ -42,21 +44,9 @@
       Clerk.mountSignIn(signInDiv)
     }
 
-    console.log(Clerk);
-        if (Clerk.user) {
-            console.log('User is signed in');
-          document.getElementById('mode-toggle').insertAdjacentHTML = `
-            <div id="user-button"></div>
-          `
-          const userButtonDiv = document.getElementById('user-button')
-    
-          Clerk.mountUserButton(userButtonDiv)
-        } else {
-            console.log('User is not signed in');
-        }
+    })
+    </script>
 
-  })
-</script>
-
+<button onclick="window.location.href='index.html'" class="home">Return to Home</button>
 </body>
 </html>
