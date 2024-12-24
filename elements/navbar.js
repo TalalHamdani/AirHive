@@ -39,3 +39,28 @@ function initializeNavbar() {
     });
 }
 
+// window.addEventListener('load', async () => {
+//     await Clerk.load();
+//     console.log('Clerk loaded');
+//     const userbuttonDiv = document.getElementById('user-button')
+//     clerk.mountUserButton(userbuttonDiv)
+
+//     // Check if the user is signed in
+//     if (Clerk.user) {
+//         document.getElementById('app').innerHTML = `
+//           <div id="user-button"></div>
+//         `
+  
+//         const userButtonDiv = document.getElementById('user-button')
+  
+//         Clerk.mountUserButton(userButtonDiv)
+//       } else {
+//         document.getElementById('app').innerHTML = `
+//           <div id="sign-in"></div>
+//         `
+  
+//         const signInDiv = document.getElementById('sign-in')
+  
+//         Clerk.mountSignIn(signInDiv)
+//       }
+// });
