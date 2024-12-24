@@ -49,21 +49,24 @@ function initializeNavbar() {
     
             // Function to update the UI based on login state
             const updateUI = () => {
-                if (Clerk.user) {
-                    console.log("User is signed in");
-    
-                    // Mount UserButton
-                    userButtonContainer.innerHTML = ""; // Clear existing content
-                    Clerk.mountUserButton(userButtonContainer);
-                    signInButton.style.display = "none";
-                } else {
-                    console.log("User is not signed in");
-    
-                    // Show Sign-In button
-                    userButtonContainer.innerHTML = ""; // Clear existing content
-                    signInButton.style.display = "block";
-                }
+                setTimeout(() => {
+                    if (Clerk.user) {
+                        console.log("User is signed in (session detected)");
+            
+                        // Mount UserButton
+                        userButtonContainer.innerHTML = ""; // Clear existing content
+                        Clerk.mountUserButton(userButtonContainer);
+                        signInButton.style.display = "none";
+                    } else {
+                        console.log("User is not signed in (no session detected)");
+            
+                        // Show Sign-In button
+                        userButtonContainer.innerHTML = ""; // Clear existing content
+                        signInButton.style.display = "block";
+                    }
+                }, 100); // Delay to ensure session state sync
             };
+            
     
             // Initial UI update
             updateUI();
