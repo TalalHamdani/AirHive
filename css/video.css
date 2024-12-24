@@ -61,6 +61,9 @@ main {
 
 /* Video Player Section */
 .video-player {
+    
+    width: 600px; /* Fixed width */
+    height: auto; /* Allow height to adjust based on content */
     flex: 2;
     transition: margin-left 0.3s, width 0.3s;
 }
@@ -70,6 +73,8 @@ main {
 }
 
 video {
+    max-height: 450px; /* Set a maximum height for the video */
+    object-fit: contain;
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
