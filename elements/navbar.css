@@ -161,17 +161,3 @@ body.dark-mode .search-icon {
 body.dark-mode #sign-in-page {
     background-color: #5195c0;
 }
-
-#profile-button {
-    background-color: #4caf50; /* Green */
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #profile-button:hover {
-    background-color: #45a049;
-  }
-  
