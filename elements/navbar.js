@@ -75,14 +75,7 @@ window.onclick = function(event) {
 
 // Function to initialize Clerk SDK and manage user authentication
 function initializeClerkIntegration() {
-
-    const clerk = new Clerk({
-        // Your Clerk API key
-        apiKey: 'pk_test_dG9waWNhbC1wdWctNjYuY2xlcmsuYWNjb3VudHMuZGV2JA',
-        // Your Clerk API secret
-        // apiSecret: 'YOUR_API_SECRET',
-      });
-      
+    // Get the container for the UserButton
     const userButtonContainer = document.getElementById('user-button-container');
     const signInButton = document.getElementById('sign-in-page');
 
