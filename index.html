@@ -30,7 +30,7 @@
     <!-- Link to JS files. -->
     <script src="elements/navbar.js" defer></script>
     <script src="elements/sidebar.js" defer></script>
-    <script src="js/video-card.js" defer></script> <!-- Don't generate cards here, just load if needed -->
+    <script src="elements/video-card.js" defer></script> <!-- Don't generate cards here, just load if needed -->
     
     <!-- Font -->
     <style>
@@ -53,7 +53,7 @@
             <button data-category="Entertainment">Entertainment</button>
             <button data-category="Gaming">Gaming</button>
             <button data-category="Music">Music</button>
-            <button data-category="">Other</button>
+            <button data-category="Other">Other</button>            
         </div>
         
         <div class="videos" id="video-container">
@@ -61,42 +61,6 @@
         </div>
         
     </main>
-
-    <script>
-        // Function to fetch video data from videos.json
-        async function fetchVideosData() {
-            try {
-                const response = await fetch('videos.json');
-                const videos = await response.json();
-                console.log("Fetched video data:", videos);
-                generateVideoCards(videos);  // Pass the fetched videos data to generate the video cards
-            } catch (error) {
-                console.error("Error fetching video data:", error);
-            }
-        }
-
-        // Function to generate video cards dynamically
-        function generateVideoCards(videos) {
-            const container = document.getElementById('video-container');
-            container.innerHTML = ""; // Clear previous content
-
-            videos.forEach(video => {
-                const card = document.createElement('div');
-                card.classList.add('video-card');
-
-                // Create dynamic content for each video card
-                card.innerHTML = `
-                    <a href="${video.url}?title=${encodeURIComponent(video.title)}&source=${encodeURIComponent(video.source)}&channel=${encodeURIComponent(video.channel)}&views=${encodeURIComponent(video.views)}&time=${encodeURIComponent(video.time)}">
-                        <img src="${video.thumbnail}" alt="${video.title}">
-                        <div class="video-card-info">
-                            <h4>${video.title}</h4>
-                            <p>${video.channel} • ${video.views} • ${video.time}</p>
-                        </div>
-                    </a>
-                `;
-                container.appendChild(card);
-            });
-        }
-    </script>
 </body>
+
 </html>

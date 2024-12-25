@@ -6,7 +6,6 @@ async function loadVideoCards() {
     try {
         const response = await fetch('videos.json');
         videos = await response.json(); // Store the fetched videos
-
         displayVideos(videos); // Initially display all videos
     } catch (error) {
         console.error('Error loading videos:', error);
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoryButtons = document.querySelectorAll('.categories button');
     categoryButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const category = button.textContent;
+            const category = button.getAttribute('data-category'); // Use data-category attribute
             if (category === 'All') {
                 displayVideos(videos); // Show all videos
             } else {

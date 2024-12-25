@@ -16,7 +16,7 @@
         "title": "Aietbar - Vital Signs (Lyrics)",
         "channel": "Vital Signs",
         "views": "500M views",
-        "time": "20 Years ago",
+        "time": "20 years ago",
         "category": "Music"
     },
     {
@@ -41,7 +41,7 @@
     },
     {
         "url": "video1.html",
-        "source": "videos/rick roll.mp4",
+        "source": "Videos/rick roll.mp4",
         "thumbnail": "img/rick roll.jpg",
         "title": "Rick Roll",
         "channel": "Donno",
@@ -56,42 +56,47 @@
         "title": "Bachana - Bilal Khan",
         "channel": "Bilal Khan",
         "views": "5M views",
-        "time": "3 Years ago"
+        "time": "3 years ago",
+        "category": "Music"
     },
     {
         "url": "video1.html",
         "source": "Videos/Another Love - Tom Odell.mp4",
         "thumbnail": "img/anotherlove.jpg",
-        "title": "Another Love - Tom Odell ( Lyrics )",
+        "title": "Another Love - Tom Odell (Lyrics)",
         "channel": "SoundCloud",
         "views": "320K views",
-        "time": "3 years ago"
+        "time": "3 years ago",
+        "category": "Music"
     },
     {
         "url": "video1.html",
         "source": "Videos/irfan-junejo---volume-2---stories-of-karachi.mp4",
         "thumbnail": "img/irfan.jpeg",
         "title": "Stories of Karachi - Volume II",
-        "channel": "irfan Junejo",
+        "channel": "Irfan Junejo",
         "views": "2.4M views",
-        "time": "4 years ago"
+        "time": "4 years ago",
+        "category": "Entertainment"
     },
     {
         "url": "video1.html",
-        "source": "videos/mirage smokes.mp4",
+        "source": "Videos/mirage smokes.mp4",
         "thumbnail": "img/mirage smokes.jpg",
         "title": "Top 10 Mirage Smokes",
         "channel": "NadeKing",
         "views": "872K views",
-        "time": "1 month ago"
+        "time": "1 month ago",
+        "category": "Gaming"
     },
     {
         "url": "video1.html",
-        "source": "videos/nayee ki dukaan.mp4",
+        "source": "Videos/nayee ki dukaan.mp4",
         "thumbnail": "img/nayeekidukan.jpg",
         "title": "Nayee Ki Dukan - Sharum Ki SketchBook",
         "channel": "Sharum Ki SketchBook",
         "views": "4.3M views",
-        "time": "3 years ago"
+        "time": "3 years ago",
+        "category": "Entertainment"
     }
 ]
