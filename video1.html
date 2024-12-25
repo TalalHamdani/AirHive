@@ -15,11 +15,6 @@
     <link rel="stylesheet" href="elements/sidebar.css">  <!-- Sidebar Styles -->
     <link rel="stylesheet" href="elements/video-card.css"> <!-- Video Card Styles -->
 
-    <!-- Link to JS Files -->
-    <link rel="stylesheet" href="elements/navbar.css">
-    <link rel="stylesheet" href="elements/sidebar.css">
-    <link rel="stylesheet" href="elements/video-card.css">
-    
     <script src="js/darkmode.js" defer></script>
     <script src="elements/navbar.js" defer></script>
     <script src="elements/sidebar.js" defer></script>
@@ -31,7 +26,6 @@
 </head>
 <body>
     <div id="navbar"></div>
-
     <div id="sidebar"></div>
 
     <main class="landing-page">
@@ -44,47 +38,73 @@
 
             <!-- Video Details (Positioned Below the Player) -->
             <div class="video-details">
-                <h1>Video Title</h1>
-                <p>Channel Name • 1M Views • 2 hours ago</p>
+                <h1 id="video-title">Video Title</h1> <!-- Default Title -->
+                <p id="video-meta">Channel Name • 1M Views • 2 hours ago</p>
 
                 <!-- Like and Comment buttons -->
                 <div class="video-actions">
                     <button class="like-button"><i class="fas fa-thumbs-up"></i> Like</button>
                     <button class="comment-button"><i class="fas fa-comment"></i> Comment</button>
+                </div>
             </div>
         </section>
 
-        <!-- Video Suggestions -->
+        <!-- Static Video Suggestions -->
         <section class="video-suggestions">
             <h3>Suggested Videos</h3>
             <div class="suggestions-grid">
-                <!-- Suggestion 1 -->
+                <!-- Static Suggestion 1 -->
                 <div class="suggestion-card">
-                    <img src="img/aitebar.jpg" alt="Thumbnail">
-                    <h4>Aietbar - Vital Signs</h4>
-                    <p>Vital Signs • 100M • 12 years ago</p>
+                    <a href="video1.html?title=Aadat%20-%20Atif%20Aslam&source=Videos%2FAadat%20-%20Atif%20Aslam.mp4&channel=Editx&views=100M%20views&time=10%20years%20ago">
+                        <img src="img/aadat.jpg" alt="Aadat - Atif Aslam">
+                        <h4>Aadat - Atif Aslam</h4>
+                        <p>100M views • 10 years ago</p>
+                    </a>
                 </div>
-                <!-- Suggestion 2 -->
+
+                <!-- Static Suggestion 2 -->
                 <div class="suggestion-card">
-                    <img src="img/olofmiester.jpg" alt="Thumbnail">
-                    <h4>Olofmiester Defuse</h4>
-                    <p>CS 2 • 6.3M • 7 years ago</p>
+                    <a href="video1.html?title=Aietbar%20-%20Vital%20Signs%20(Lyrics)&source=Videos%2FAietbar%20-%20Vital%20Signs.mp4&channel=Vital%20Signs&views=500M%20views&time=20%20years%20ago">
+                        <img src="img/aitebar.jpg" alt="Aietbar - Vital Signs">
+                        <h4>Aietbar - Vital Signs</h4>
+                        <p>500M views • 20 years ago</p>
+                    </a>
                 </div>
-                <!-- More suggestions can be added here -->
             </div>
         </section>
     </main>
 
     <script>
+        // Get the parameters from the URL
         const params = new URLSearchParams(window.location.search);
+        const title = params.get('title');
         const videoSource = params.get('source');
-       
-        const videoPlayer = document.querySelector('video');
+        const channel = params.get('channel');
+        const views = params.get('views');
+        const time = params.get('time');
 
-        if (videoSource) {
-            videoPlayer.src = videoSource;
+        // Set dynamic values
+        const videoTitleElement = document.getElementById('video-title');
+        const videoMetaElement = document.getElementById('video-meta');
+        const videoPlayer = document.querySelector('video source');
+
+        // Update the video title
+        if (title) {
+            videoTitleElement.textContent = decodeURIComponent(title);
         }
 
+        // Update video meta (channel, views, time)
+        if (channel && views && time) {
+            videoMetaElement.textContent = `${decodeURIComponent(channel)} • ${decodeURIComponent(views)} • ${decodeURIComponent(time)}`;
+        }
+
+        // Set the video source dynamically
+        if (videoSource) {
+            videoPlayer.src = decodeURIComponent(videoSource);
+        }
+
+        // Reload the video player to apply the new source
+        videoPlayer.load();
     </script>
 </body>
 </html>

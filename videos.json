@@ -37,7 +37,7 @@
     },
     {
         "url": "video1.html",
-        "source": "rick roll.mp4",
+        "source": "videos/rick roll.mp4",
         "thumbnail": "img/rick roll.jpg",
         "title": "Rick Roll",
         "channel": "Donno",
