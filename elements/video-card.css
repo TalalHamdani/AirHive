@@ -38,7 +38,8 @@ body.dark-mode .video-card {
 }
 
 .video-card img {
-    width: 100%; /* Make the image responsive */
+    object-fit: contain;
+    width: 100%;
     border-radius: 10px;
     transition: transform 0.3s ease; /* Smooth zoom effect */
 }
