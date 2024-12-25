@@ -68,8 +68,9 @@ body.dark-mode .categories button:hover {
 }
 
 body.dark-mode .categories button.active {
-    background-color: #0f0f0f; /* Darker gray for active state in dark mode */
+    background-color: #171717; /* Darker gray for active state in dark mode */
     color: #ffffff; /* Text remains white for active button in dark mode */
+    border:#303030 1px solid;
 }
 
 .categories button.active:hover {

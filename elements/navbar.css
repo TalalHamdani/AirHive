@@ -161,3 +161,26 @@ body.dark-mode .search-icon {
 body.dark-mode #sign-in-page {
     background-color: #5195c0;
 }
+
+.button {
+    --bg: linear-gradient(180deg,
+              hsla(0, 0%, 100%, .1),
+              hsla(0, 0%, 100%, 0)),
+          hsl(199, 52%, 45%);
+    box-shadow: 0 1px 2px #25114f66, 0 0 0 1px hsla(203, 50%, 45%, 0.761);
+    background-color: transparent;
+    border: none;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .25rem .5rem;
+    cursor: pointer;
+    padding-right: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--bg);
+    white-space: nowrap;
+    border-radius: 6px;
+    border: 1px solid #fff3;
+  }
