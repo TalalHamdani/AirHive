@@ -52,7 +52,7 @@
         <div id="logged-in-content" style="display: none;">
             <h2>Your Subscriptions</h2>
             <div class="videos" id="video-container"></div>
-
+        </div>
         <!-- Content for logged-out users -->
         <div id="default-content" style="display: none;">
             <h2 class="message-title">Please sign in to view your subscriptions</h2>
@@ -63,26 +63,33 @@
     </main>
 
     <script>
+        // window.onload = async () => {
         document.addEventListener('DOMContentLoaded', async () => {
             try {
                 console.log("Initializing Clerk...");
                 await Clerk.load();
-
+    
                 const loggedInContent = document.getElementById('logged-in-content');
                 const defaultContent = document.getElementById('default-content');
-
+    
+                // Check if the user is logged in
                 if (Clerk.user) {
-                    console.log("User is logged in:", Clerk.user);
+                    console.log("User  is logged in:", Clerk.user);
                     loggedInContent.style.display = 'block';
                     defaultContent.style.display = 'none';
+                    console.log("Logged In Content:", loggedInContent);
+                    console.log("Default Content:", defaultContent);
                 } else {
-                    console.log("User is not logged in");
+
+                    console.log("User  is not logged in");
                     loggedInContent.style.display = 'none';
                     defaultContent.style.display = 'block';
+                    console.log("Logged In Content:", loggedInContent);
+                    console.log("Default Content:", defaultContent);
                 }
             } catch (error) {
                 console.error('Error loading Clerk or determining user state:', error);
-
+    
                 // Display a fallback error message
                 const mainContent = document.querySelector('.main-content');
                 mainContent.innerHTML = `
@@ -90,6 +97,7 @@
                 `;
             }
         });
+    // }
     </script>
 </body>
 </html>
