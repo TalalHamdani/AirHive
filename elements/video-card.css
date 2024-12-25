@@ -15,6 +15,7 @@ body.dark-mode .video-card {
 }
 
 .video-card img {
+    object-fit: contain;
     width: 100%;
     border-radius: 10px;
     transition: transform 0.3s ease; /* Smooth zoom effect for image */
