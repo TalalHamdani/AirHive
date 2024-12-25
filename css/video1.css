@@ -16,7 +16,7 @@ body.dark-mode {
     color: #f5f5f5;
 }
 
-/* Header and Sidebar Styles */
+/* Header and Sidebar */
 header {
     display: flex;
     align-items: center;
@@ -61,21 +61,17 @@ main {
 
 /* Video Player Section */
 .video-player {
-    
-    width: 600px; /* Fixed width */
-    height: auto; /* Allow height to adjust based on content */
+    width: 600px;
     flex: 2;
+    margin-top: 75px; /* Add margin to create space below the navbar */
     transition: margin-left 0.3s, width 0.3s;
 }
 
-.sidebar.collapsed + main .video-player {
-    margin-left: 50px;
-}
 
 video {
-    max-height: 450px; /* Set a maximum height for the video */
-    object-fit: contain;
+    max-height: 450px;
     width: 100%;
+    object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -115,7 +111,7 @@ video {
     background-color: #2c6e95;
 }
 
-/* Video Suggestions Section */
+/* Video Suggestions */
 .video-suggestions {
     flex: 1;
     display: flex;
@@ -126,35 +122,39 @@ video {
     transition: flex 0.3s;
 }
 
+.video-suggestions h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
 .suggestion-card {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 350px; 
-    margin: 0 auto; 
-    padding: 0px; 
+    width: 350px;
+    margin: 0 auto;
 }
 
 .suggestion-card img {
     width: 100%;
-    height: auto; 
+    height: auto;
     border-radius: 10px;
 }
 
 .suggestion-card h4 {
-    font-size: 14px; 
+    font-size: 14px;
     margin: 10px 0 5px;
 }
 
 .suggestion-card p {
-    font-size: 10px; 
+    font-size: 10px;
     color: #777;
-    margin-top: -5px; 
-    line-height: 1.2; 
+    margin-top: -5px;
+    line-height: 1.2;
 }
-
-
 
 /* Dark Mode Adjustments */
 body.dark-mode .video-suggestions {
