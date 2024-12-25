@@ -48,10 +48,48 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="content-message">
+        <!-- Content for logged-in users -->
+        <div id="logged-in-content" style="display: none;">
+            <h2>Your Subscriptions</h2>
+            <div class="videos" id="video-container"></div>
+
+        <!-- Content for logged-out users -->
+        <div id="default-content" style="display: none;">
             <h2 class="message-title">Please sign in to view your subscriptions</h2>
             <a href="/signin.html">
                 <button id="sign-in-page2">Sign In</button>
             </a>
-                </div>
+        </div>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                console.log("Initializing Clerk...");
+                await Clerk.load();
+
+                const loggedInContent = document.getElementById('logged-in-content');
+                const defaultContent = document.getElementById('default-content');
+
+                if (Clerk.user) {
+                    console.log("User is logged in:", Clerk.user);
+                    loggedInContent.style.display = 'block';
+                    defaultContent.style.display = 'none';
+                } else {
+                    console.log("User is not logged in");
+                    loggedInContent.style.display = 'none';
+                    defaultContent.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error loading Clerk or determining user state:', error);
+
+                // Display a fallback error message
+                const mainContent = document.querySelector('.main-content');
+                mainContent.innerHTML = `
+                    <h2 class="error-message">Something went wrong. Please refresh the page.</h2>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
