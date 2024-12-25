@@ -43,5 +43,50 @@
         "channel": "Donno",
         "views": "585K views",
         "time": "7 years ago"
+    },
+    {
+        "url": "video1.html",
+        "source": "Videos/bachana-bilal-khan.mp4",
+        "thumbnail": "img/bachana.jpg",
+        "title": "Bachana - Bilal Khan",
+        "channel": "Bilal Khan",
+        "views": "5M views",
+        "time": "3 Years ago"
+    },
+    {
+        "url": "video1.html",
+        "source": "Videos/Another Love - Tom Odell.mp4",
+        "thumbnail": "img/anotherlove.jpg",
+        "title": "Another Love - Tom Odell ( Lyrics )",
+        "channel": "SoundCloud",
+        "views": "320K views",
+        "time": "3 years ago"
+    },
+    {
+        "url": "video1.html",
+        "source": "Videos/irfan-junejo---volume-2---stories-of-karachi.mp4",
+        "thumbnail": "img/irfan.jpeg",
+        "title": "Stories of Karachi - Volume II",
+        "channel": "irfan Junejo",
+        "views": "2.4M views",
+        "time": "4 years ago"
+    },
+    {
+        "url": "video1.html",
+        "source": "videos/mirage smokes.mp4",
+        "thumbnail": "img/mirage smokes.jpg",
+        "title": "Top 10 Mirage Smokes",
+        "channel": "NadeKing",
+        "views": "872K views",
+        "time": "1 month ago"
+    },
+    {
+        "url": "video1.html",
+        "source": "videos/nayee ki dukaan.mp4",
+        "thumbnail": "img/nayeekidukan.jpg",
+        "title": "Nayee Ki Dukan - Sharum Ki SketchBook",
+        "channel": "Sharum Ki SketchBook",
+        "views": "4.3M views",
+        "time": "3 years ago"
     }
 ]
