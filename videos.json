@@ -6,7 +6,8 @@
         "title": "Aadat - Atif Aslam",
         "channel": "Editx",
         "views": "100M views",
-        "time": "10 years ago"
+        "time": "10 years ago",
+        "category": "Music"
     },
     {
         "url": "video1.html",
@@ -15,7 +16,8 @@
         "title": "Aietbar - Vital Signs (Lyrics)",
         "channel": "Vital Signs",
         "views": "500M views",
-        "time": "20 Years ago"
+        "time": "20 Years ago",
+        "category": "Music"
     },
     {
         "url": "video1.html",
@@ -24,7 +26,8 @@
         "title": "Cheating - Bassi Stand Up Comedy",
         "channel": "Anubhav Singh Bassi",
         "views": "500K views",
-        "time": "2 years ago"
+        "time": "2 years ago",
+        "category": "Entertainment"
     },
     {
         "url": "video1.html",
@@ -33,7 +36,8 @@
         "title": "Olofmiester Overpass Legendary Defuse",
         "channel": "CS 2 Insights",
         "views": "1.3M views",
-        "time": "7 years ago"
+        "time": "7 years ago",
+        "category": "Gaming"
     },
     {
         "url": "video1.html",
