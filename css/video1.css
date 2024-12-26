@@ -99,7 +99,7 @@ video {
     gap: 15px;
 }
 
-.like-button, .comment-button {
+.like-button, .dislike-button {
     background-color: #49a1d1;
     color: white;
     padding: 10px 20px;
@@ -109,9 +109,66 @@ video {
     transition: background-color 0.3s;
 }
 
-.like-button:hover, .comment-button:hover {
+.like-button:hover, .dislike-but:hover {
     background-color: #2c6e95;
 }
+
+/* Comment Box */
+.comment-box {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-box textarea {
+    width: 100%;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.comment-box textarea:focus {
+    outline: none;
+    border-color: #49a1d1;
+}
+
+.comment-box button {
+    background-color: #49a1d1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+    font-size: 14px;
+}
+
+.comment-box button:hover {
+    background-color: #2c6e95;
+}
+
+body.dark-mode .comment-box textarea {
+    background-color: #303030;
+    color: #ccc;
+    border: 1px solid #444;
+}
+
+body.dark-mode .comment-box button {
+    background-color: #49a1d1;
+    color: white;
+}
+
+body.dark-mode .comment-box button:hover {
+    background-color: #2c6e95;
+}
+
 
 /* Video Suggestions */
 .video-suggestions {
