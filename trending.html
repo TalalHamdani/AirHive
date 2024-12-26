@@ -11,18 +11,14 @@
     <link rel="stylesheet" href="elements/sidebar.css">  <!-- Sidebar Styles -->
     <link rel="stylesheet" href="elements/video-card.css"> <!-- Video Card Styles -->
     <link rel="stylesheet" href="css/default-page.css"> <!-- Default Styles -->
+    <link rel="stylesheet" href="css/trending-page.css"> <!-- External Styles -->
 
-
-  <!-- Link to JS Files -->
-  <script src="elements/navbar.js" defer></script>
-  <script src="elements/sidebar.js" defer></script>
-  <script src="elements/video-card.js" defer></script>
+    <!-- Link to JS Files -->
+    <script src="elements/navbar.js" defer></script>
+    <script src="elements/sidebar.js" defer></script>
+    <script src="elements/video-card.js" defer></script>
   
     <!-- Font -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-    </style>
-
     <script src="https://kit.fontawesome.com/27c8061413.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -34,4 +30,94 @@
 
     <!-- Main Content -->
     <main class="main-content">
+        <!-- Heading for Trending Videos -->
+        <h1>Trending Videos</h1>
+
+        <!-- Container for video cards -->
+        <div id="video-container"></div>
     </main>
+
+    <script>
+        let videos = []; // Store all videos for filtering later
+
+        async function loadVideoCards() {
+            const videoContainer = document.getElementById('video-container');
+
+            try {
+                const response = await fetch('videos.json');
+                videos = await response.json(); // Store the fetched videos
+
+                // Sort videos by views in descending order
+                videos.sort((a, b) => {
+                    const aViews = parseViews(a.views);
+                    const bViews = parseViews(b.views);
+                    return bViews - aViews; // Sort in descending order
+                });
+
+                // Take top 10 videos
+                const topVideos = videos.slice(0, 10);
+
+                displayVideos(topVideos); // Display top 10 sorted videos
+            } catch (error) {
+                console.error('Error loading videos:', error);
+            }
+        }
+
+        function parseViews(views) {
+            const viewCount = views.split(' ')[0]; // Get the number part (e.g., "100M")
+            const viewMultiplier = {
+                'K': 1000,
+                'M': 1000000,
+                'B': 1000000000
+            };
+
+            const unit = viewCount.charAt(viewCount.length - 1); // Get last character (K, M, or B)
+            const numericValue = parseFloat(viewCount.slice(0, -1)); // Get numeric part
+
+            return numericValue * (viewMultiplier[unit] || 1); // Multiply by the appropriate factor
+        }
+
+        function displayVideos(videoList) {
+            const videoContainer = document.getElementById('video-container');
+            videoContainer.innerHTML = ''; // Clear previous videos
+
+            if (videoList.length === 0) {
+                videoContainer.innerHTML = '<p>No videos found for this category.</p>';
+                return;
+            }
+
+            videoList.forEach((video, index) => {
+                const videoCard = document.createElement('a');
+                videoCard.classList.add('video-card');
+                videoCard.href = `${video.url}?source=${encodeURIComponent(video.source)}`;
+                videoCard.target = "_blank";
+
+                const number = document.createElement('div');
+                number.classList.add('video-card-number');
+                number.textContent = index + 1; // Display the number
+
+                const thumbnail = document.createElement('img');
+                thumbnail.src = video.thumbnail;
+                thumbnail.alt = "Video Thumbnail";
+
+                const title = document.createElement('h3');
+                title.textContent = video.title;
+
+                const description = document.createElement('p');
+                description.textContent = `${video.channel} • ${video.views} • ${video.time}`;
+
+                videoCard.appendChild(number);
+                videoCard.appendChild(thumbnail);
+                videoCard.appendChild(title);
+                videoCard.appendChild(description);
+
+                videoContainer.appendChild(videoCard);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadVideoCards();
+        });
+    </script>
+</body>
+</html>
