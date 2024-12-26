@@ -33,7 +33,8 @@ async function handleLogin(event) {
 
         if (user) {
             localStorage.setItem("isLoggedIn", "true"); // Save session
-            window.location.href = "index.html"; // Redirect to dashboard
+            const redirectUrl = document.referrer || "index.html"; // Redirect to the previous page or dashboard
+            window.location.href = redirectUrl;
         } else {
             alert("Invalid email or password!");
         }
@@ -54,7 +55,7 @@ function checkSession() {
 // Logout functionality
 function logout() {
     localStorage.removeItem("isLoggedIn");
-    window.location.href = "index.html"; // Redirect to login
+    window.location.reload(); // Refresh the current page
 }
 
 // Event listeners
