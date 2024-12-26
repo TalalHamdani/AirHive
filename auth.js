@@ -69,3 +69,41 @@ document.addEventListener("DOMContentLoaded", () => {
         logoutButton.addEventListener("click", logout);
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    const email = localStorage.getItem("email");
+
+    // Get all elements, with fallback checks
+    const loggedInSubscriptions = document.getElementById("logged-in-subscriptions");
+    const defaultSubscriptions = document.getElementById("default-subscriptions");
+    const loggedInPlaylists = document.getElementById("logged-in-playlists");
+    const defaultPlaylists = document.getElementById("default-playlists");
+    const loggedInSavedVideos = document.getElementById("logged-in-saved-videos");
+    const defaultSavedVideos = document.getElementById("default-saved-videos");
+
+    if (isLoggedIn === "true") {
+        console.log(`User is logged in as ${email}`);
+
+        if (loggedInSubscriptions) loggedInSubscriptions.style.display = "block";
+        if (defaultSubscriptions) defaultSubscriptions.style.display = "none";
+
+        if (loggedInPlaylists) loggedInPlaylists.style.display = "block";
+        if (defaultPlaylists) defaultPlaylists.style.display = "none";
+
+        if (loggedInSavedVideos) loggedInSavedVideos.style.display = "block";
+        if (defaultSavedVideos) defaultSavedVideos.style.display = "none";
+    } else {
+        console.log("User is not logged in.");
+
+        if (loggedInSubscriptions) loggedInSubscriptions.style.display = "none";
+        if (defaultSubscriptions) defaultSubscriptions.style.display = "block";
+
+        if (loggedInPlaylists) loggedInPlaylists.style.display = "none";
+        if (defaultPlaylists) defaultPlaylists.style.display = "block";
+
+        if (loggedInSavedVideos) loggedInSavedVideos.style.display = "none";
+        if (defaultSavedVideos) defaultSavedVideos.style.display = "block";
+    }
+});

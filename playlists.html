@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="css/default-page.css"> <!-- Default Styles -->
 
 
-  <!-- Link to JS Files -->
-  <script src="js/darkmode.js" defer></script>
-  <script src="elements/navbar.js" defer></script>
-  <script src="elements/sidebar.js" defer></script>
-  <script src="elements/video-card.js" defer></script>
+    <!-- Link to JS Files -->
+    <script src="elements/navbar.js" defer></script>
+    <script src="elements/sidebar.js" defer></script>
+    <script src="elements/video-card.js" defer></script>
+    <script src="auth.js" defer></script>
   
     <!-- Font -->
     <style>
@@ -28,17 +28,28 @@
     <script src="https://kit.fontawesome.com/27c8061413.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+
     <!-- Placeholder for Navbar -->
     <div id="navbar"></div>
 
     <!-- Placeholder for Sidebar -->
     <div id="sidebar"></div>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="content-message">
-            <h2 class="message-title">Please sign in to view your playlists</h2>
-            <a href="/login.html">
-                <button id="sign-in-page2">Sign In</button>
-            </a>       </div>
+   <!-- Main Content -->
+   <main class="main-content">
+    <!-- Content for logged-in users -->
+    <div id="logged-in-playlists" style="display: none;">
+        <h2>Your Playlists</h2>
+        <p>You have no playlists.</p>
+    </div>
+    <!-- Content for logged-out users -->
+    <div id="default-playlists" style="display: none;">
+        <h2 class="message-title">Please sign in to view your playlists.</h2>
+        <a href="/login.html">
+            <button id="sign-in-page2">Sign In</button>
+        </a>
+    </div>
     </main>
+</body>
+</html>

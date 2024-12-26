@@ -17,6 +17,8 @@
   <script src="elements/navbar.js" defer></script>
   <script src="elements/sidebar.js" defer></script>
   <script src="elements/video-card.js" defer></script>
+  <script src="auth.js" defer></script>
+
   
     <!-- Font -->
     <style>
@@ -34,10 +36,19 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="content-message">
-            <h2 class="message-title">Please sign in to view your saved videos</h2>
+        <!-- Content for logged-in users -->
+        <div id="logged-in-saved-videos" style="display: none;">
+            <h2 clas>Your Saved Videos</h2>
+            <p>You have no saved videos.</p>
+        </div>
+        <!-- Content for logged-out users -->
+        <div id="default-saved-videos" style="display: none;">
+            <h2 class="message-title">Please sign in to view your saved videos.</h2>
             <a href="/login.html">
                 <button id="sign-in-page2">Sign In</button>
             </a>
         </div>
     </main>
+
+</body>
+</html>
