@@ -23,8 +23,35 @@
     </style>
 
     <script src="https://kit.fontawesome.com/27c8061413.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const isLoggedIn = localStorage.getItem("isLoggedIn");
+            const email = localStorage.getItem("email");
+    
+            const loggedInContent = document.getElementById("logged-in-content");
+            const defaultContent = document.getElementById("default-content");
+    
+            if (isLoggedIn === "true") {
+                // User is logged in
+                console.log(`User is logged in as ${email}`);
+                loggedInContent.style.display = "block"; // Show logged-in content
+                defaultContent.style.display = "none"; // Hide logged-out content
+    
+                // Dynamically load videos or other user-specific content
+                const videoContainer = document.getElementById("video-container");;
+            } else {
+                // User is not logged in
+                console.log("User is not logged in.");
+                loggedInContent.style.display = "none"; // Hide logged-in content
+                defaultContent.style.display = "block"; // Show logged-out content
+            }
+        });
+    </script>
+
     <!-- Placeholder for Navbar -->
     <div id="navbar"></div>
 
@@ -47,42 +74,5 @@
         </div>
     </main>
 
-    <script>
-        // window.onload = async () => {
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                console.log("Initializing Clerk...");
-                await Clerk.load();
-    
-                const loggedInContent = document.getElementById('logged-in-content');
-                const defaultContent = document.getElementById('default-content');
-    
-                // Check if the user is logged in
-                if (Clerk.user) {
-                    console.log("User  is logged in:", Clerk.user);
-                    loggedInContent.style.display = 'block';
-                    defaultContent.style.display = 'none';
-                    console.log("Logged In Content:", loggedInContent);
-                    console.log("Default Content:", defaultContent);
-                } else {
-
-                    console.log("User  is not logged in");
-                    loggedInContent.style.display = 'none';
-                    defaultContent.style.display = 'block';
-                    console.log("Logged In Content:", loggedInContent);
-                    console.log("Default Content:", defaultContent);
-                }
-            } catch (error) {
-                console.error('Error loading Clerk or determining user state:', error);
-    
-                // Display a fallback error message
-                const mainContent = document.querySelector('.main-content');
-                mainContent.innerHTML = `
-                    <h2 class="error-message">Something went wrong. Please refresh the page.</h2>
-                `;
-            }
-        });
-    // }
-    </script>
 </body>
 </html>

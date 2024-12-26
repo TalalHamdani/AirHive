@@ -54,7 +54,7 @@ function checkSession() {
 // Logout functionality
 function logout() {
     localStorage.removeItem("isLoggedIn");
-    window.location.href = "index.html"; // Redirect to home page
+    window.location.href = "index.html"; // Redirect to login
 }
 
 // Event listeners

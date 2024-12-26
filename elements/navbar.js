@@ -22,7 +22,7 @@ function loadNavbar() {
         .catch(error => console.error('Error loading navbar:', error));
 }
 
-// Function to initialize the navbar and handle visibility of buttons based on session
+// Function to initialize the navbar
 function initializeNavbar() {
     console.log('Initializing Navbar...');
 
@@ -76,9 +76,11 @@ function initializeNavbar() {
     const logoutButton = document.getElementById('logoutButton');
     if (logoutButton) {
         logoutButton.addEventListener('click', () => {
-            console.log('User logged out. Clearing session and redirecting to home.');
+            console.log('Logout button clicked.');
             localStorage.removeItem('isLoggedIn');
-            window.location.href = '/index.html';
+            localStorage.removeItem('username'); // If username is stored
+            alert('You have been logged out.');
+            location.reload(); // Refresh the current page
         });
     }
 
