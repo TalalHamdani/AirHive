@@ -22,109 +22,86 @@ function loadNavbar() {
         .catch(error => console.error('Error loading navbar:', error));
 }
 
-// Function to initialize the navbar and handle dark mode toggle
+// Function to initialize the navbar and handle visibility of buttons based on session
 function initializeNavbar() {
+    console.log('Initializing Navbar...');
+
+    // Dark mode toggle functionality
     const toggleButton = document.getElementById('mode-toggle');
+    if (toggleButton) {
+        const savedMode = localStorage.getItem('mode');
+        console.log('Saved mode:', savedMode);
 
-    // Set initial mode based on saved preference
-    const savedMode = localStorage.getItem('mode');
-    if (savedMode === 'dark') {
-        document.body.classList.add('dark-mode');
-        toggleButton.textContent = '☀️'; // Sun icon for dark mode
-    } else {
-        document.body.classList.remove('dark-mode');
-        toggleButton.textContent = '🌙'; // Moon icon for light mode
-    }
-
-    // Add event listener for dark mode toggle
-    toggleButton.addEventListener('click', () => {
-        const isDarkMode = document.body.classList.toggle('dark-mode');
-        toggleButton.textContent = isDarkMode ? '☀️' : '🌙';
-        localStorage.setItem('mode', isDarkMode ? 'dark' : 'light');
-        console.log('Mode changed to', isDarkMode ? 'dark' : 'light');
-    });
-
-    initializeClerkIntegration(); // Initialize Clerk functionality
-
-    // Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-}
-
-// Function to initialize Clerk SDK and manage user authentication
-function initializeClerkIntegration() {
-    // Get the container for the UserButton
-    const userButtonContainer = document.getElementById('user-button-container');
-    const signInButton = document.getElementById('sign-in-page');
-
-    // Display last known state from localStorage
-    const lastKnownState = localStorage.getItem('isUserSignedIn');
-    if (lastKnownState === 'true') {
-        // Show profile placeholder immediately
-        userButtonContainer.innerHTML = '<span>Loading Profile...</span>';
-        signInButton.style.display = 'none';
-    } else {
-        // Show Sign-In button immediately
-        userButtonContainer.innerHTML = '';
-        signInButton.style.display = 'block';
-    }
-
-    window.addEventListener('load', async () => {
-        try {
-            // Load Clerk SDK
-            await Clerk.load();
-            console.log('Clerk loaded');
-
-            // Check authentication state and update the UI
-            if (Clerk.user) {
-                console.log('User is signed in');
-
-                // Persist user state in localStorage
-                localStorage.setItem('isUserSignedIn', 'true');
-
-                // Mount UserButton and hide the Sign-In button
-                userButtonContainer.innerHTML = '';
-                Clerk.mountUserButton(userButtonContainer);
-                signInButton.style.display = 'none';
-            } else {
-                console.log('User is not signed in');
-
-                // Persist user state in localStorage
-                localStorage.setItem('isUserSignedIn', 'false');
-
-                // Show the Sign-In button
-                userButtonContainer.innerHTML = '';
-                signInButton.style.display = 'block';
-            }
-        } catch (error) {
-            console.error('Error initializing Clerk:', error);
-
-            // Handle fallback or error UI
-            userButtonContainer.innerHTML = '<span>Error loading authentication</span>';
+        // Apply the saved mode on page load
+        if (savedMode === 'dark') {
+            document.body.classList.add('dark-mode');
+            toggleButton.textContent = '☀️'; // Sun icon for dark mode
+        } else {
+            document.body.classList.remove('dark-mode');
+            toggleButton.textContent = '🌙'; // Moon icon for light mode
         }
 
-        
-    });
+        // Add click event listener for the toggle button
+        toggleButton.addEventListener('click', () => {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            toggleButton.textContent = isDarkMode ? '☀️' : '🌙';
+            localStorage.setItem('mode', isDarkMode ? 'dark' : 'light');
+            console.log('Mode changed to', isDarkMode ? 'dark' : 'light');
+        });
+    } else {
+        console.log('Dark mode toggle button not found.');
+    }
+
+    // Handle sign-in button and user icon visibility based on session
+    const signInButton = document.getElementById('sign-in-page');
+    const userIcon = document.getElementById('user-icon');
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    console.log('isLoggedIn status:', isLoggedIn);
+
+    if (signInButton && userIcon) {
+        if (isLoggedIn === 'true') {
+            console.log('User is logged in. Hiding Sign-In button and showing User Icon.');
+            signInButton.style.display = 'none'; // Hide the Sign-In button
+            userIcon.style.display = 'block'; // Show the User Icon
+        } else {
+            console.log('User is not logged in. Showing Sign-In button and hiding User Icon.');
+            signInButton.style.display = 'block'; // Show the Sign-In button
+            userIcon.style.display = 'none'; // Hide the User Icon
+        }
+    } else {
+        console.log('Sign-In button or User Icon not found in the navbar.');
+    }
+
+    // Logout functionality
+    const logoutButton = document.getElementById('logoutButton');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', () => {
+            console.log('User logged out. Clearing session and redirecting to home.');
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = '/index.html';
+        });
+    }
+
+    // Modal functionality
+    const modal = document.getElementById('myModal');
+    const modalTrigger = document.getElementById('myBtn');
+    const modalClose = document.getElementsByClassName('close')[0];
+
+    if (modalTrigger) {
+        modalTrigger.onclick = function () {
+            modal.style.display = 'block';
+        };
+    }
+
+    if (modalClose) {
+        modalClose.onclick = function () {
+            modal.style.display = 'none';
+        };
+    }
+
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
 }

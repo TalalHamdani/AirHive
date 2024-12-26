@@ -5,21 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trending - AirHive</title>
     
-    <!-- Clerk SDK -->
-    <script
-    async
-    crossorigin="anonymous"
-    data-clerk-publishable-key="pk_test_dG9waWNhbC1wdWctNjYuY2xlcmsuYWNjb3VudHMuZGV2JA"
-    src="https://topical-pug-66.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
-    type="text/javascript">
-    </script>
-    <script>
-        window.onload = async () => {
-            await Clerk.load();
-            console.log("Preloading Clerk state");
-        };
-    </script>
-    
     <!-- Link to CSS Files -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="elements/navbar.css">  <!-- Navbar Styles -->
@@ -51,7 +36,7 @@
     <main class="main-content">
         <div class="content-message">
             <h2 class="message-title">Please sign in to view your saved videos</h2>
-            <a href="/signin.html">
+            <a href="/login.html">
                 <button id="sign-in-page2">Sign In</button>
             </a>
         </div>
