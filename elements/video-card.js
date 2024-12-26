@@ -101,3 +101,23 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Unable to load the video. Please try again later.');
     });
 });
+
+//Filter videos
+function filterVideos(category) {
+    if (category === 'All') {
+        displayVideos(videos); // Show all videos if "All" is selected
+    } else {
+        // Filter videos based on the selected category
+        const filteredVideos = videos.filter(video => {
+            console.log('Video category:', video.category, 'Filter category:', category); // Debugging: Log categories
+            return video.category === category;
+        });
+
+        if (filteredVideos.length === 0) {
+            console.warn('No videos found for category:', category); // Debugging: Warn if no matches
+        }
+
+        // Display only the filtered videos
+        displayVideos(filteredVideos);
+    }
+}
