@@ -1,0 +1,67 @@
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Center the content */
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Heading Style */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+/* Container for video cards */
+#video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Video Card Style */
+.video-card {
+    width: 250px;
+    text-align: center;
+  
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+    transform: scale(1.05);
+}
+
+.video-card img {
+    width: 100%;
+    height: auto;
+}
+
+.video-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.video-card p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 10px;
+}
+
+/* Numbering for video cards */
+.video-card-number {
+    font-size: 1.5em;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+}

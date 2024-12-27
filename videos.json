@@ -13,7 +13,7 @@
         "url": "video1.html",
         "source": "Videos/Aietbar - Vital Signs.mp4",
         "thumbnail": "img/aitebar.jpg",
-        "title": "Aietbar - Vital Signs (Lyrics)",
+        "title": "Aitebar - Vital Signs (Lyrics)",
         "channel": "Vital Signs",
         "views": "500M views",
         "time": "20 Years ago",
@@ -92,5 +92,23 @@
         "channel": "Sharum Ki SketchBook",
         "views": "4.3M views",
         "time": "3 years ago"
+    },
+    {
+        "url": "video1.html",
+        "source": "videos/rhs.mp4",
+        "thumbnail": "img/rhs.jpg",
+        "title": "Delhi Gate Street Food Lahore",
+        "channel": "Rana Hamza Saif - RHS",
+        "views": "892K views",
+        "time": "2 years ago"
+    },
+    {
+        "url": "video1.html",
+        "source": "videos/air crash investigation.mp4",
+        "thumbnail": "img/aircrash.jpg",
+        "title": "A Pakistani Passenger Plane Is Lost Over the Himalayas",
+        "channel": "Smithson Channel",
+        "views": "467K views",
+        "time": "5 years ago"
     }
 ]
