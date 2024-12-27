@@ -31,7 +31,7 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Heading for Trending Videos -->
-        <h1>Trending Videos</h1>
+        <h2 style="text-align: left;">Trending Videos</h2>
 
         <!-- Container for video cards -->
         <div id="video-container"></div>
@@ -89,7 +89,7 @@
             videoList.forEach((video, index) => {
                 const videoCard = document.createElement('a');
                 videoCard.classList.add('video-card');
-                videoCard.href = `${video.url}?source=${encodeURIComponent(video.source)}`;
+                videoCard.href = `${video.url}?source=${encodeURIComponent(video.source)}&title=${encodeURIComponent(video.title)}&channel=${encodeURIComponent(video.channel)}&views=${encodeURIComponent(video.views)}&time=${encodeURIComponent(video.time)}`;
                 videoCard.target = "_blank";
 
                 const number = document.createElement('div');

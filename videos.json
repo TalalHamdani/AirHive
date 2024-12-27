@@ -46,7 +46,8 @@
         "title": "Rick Roll",
         "channel": "Donno",
         "views": "585K views",
-        "time": "7 years ago"
+        "time": "7 years ago",
+        "category": "Music"
     },
     {
         "url": "video1.html",
@@ -55,7 +56,8 @@
         "title": "Bachana - Bilal Khan",
         "channel": "Bilal Khan",
         "views": "5M views",
-        "time": "3 Years ago"
+        "time": "3 Years ago",
+        "category": "Music"
     },
     {
         "url": "video1.html",
@@ -64,7 +66,8 @@
         "title": "Another Love - Tom Odell ( Lyrics )",
         "channel": "SoundCloud",
         "views": "320K views",
-        "time": "3 years ago"
+        "time": "3 years ago",
+        "category": "Music"
     },
     {
         "url": "video1.html",
@@ -73,7 +76,8 @@
         "title": "Stories of Karachi - Volume II",
         "channel": "irfan Junejo",
         "views": "2.4M views",
-        "time": "4 years ago"
+        "time": "4 years ago",
+        "category": "Entertainment"
     },
     {
         "url": "video1.html",
@@ -82,7 +86,8 @@
         "title": "Top 10 Mirage Smokes",
         "channel": "NadeKing",
         "views": "872K views",
-        "time": "1 month ago"
+        "time": "1 month ago",
+        "category": "Gaming"
     },
     {
         "url": "video1.html",
@@ -91,7 +96,8 @@
         "title": "Nayee Ki Dukan - Sharum Ki SketchBook",
         "channel": "Sharum Ki SketchBook",
         "views": "4.3M views",
-        "time": "3 years ago"
+        "time": "3 years ago",
+        "category": "Entertainment"
     },
     {
         "url": "video1.html",
@@ -100,7 +106,8 @@
         "title": "Delhi Gate Street Food Lahore",
         "channel": "Rana Hamza Saif - RHS",
         "views": "892K views",
-        "time": "2 years ago"
+        "time": "2 years ago",
+        "category": "Entertainment"
     },
     {
         "url": "video1.html",
@@ -109,6 +116,7 @@
         "title": "A Pakistani Passenger Plane Is Lost Over the Himalayas",
         "channel": "Smithson Channel",
         "views": "467K views",
-        "time": "5 years ago"
+        "time": "5 years ago",
+        "category": ""
     }
 ]
