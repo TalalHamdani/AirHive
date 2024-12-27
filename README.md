@@ -35,6 +35,7 @@ Frontend
 
 Hosting
 • Vercel: Deployment and hosting platform for seamless scalability and performance
+• Domain: https://airhive-pk.vercel.app
 
 Contributors:
 • Syed Talal Hamdani
